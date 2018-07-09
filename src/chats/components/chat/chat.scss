@@ -1,0 +1,41 @@
+.chat {
+  text-align: left;
+  padding: 1rem 1.5rem;
+  border-bottom: solid 1px #e7e8ec;
+  &__author, &__text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  &__title, &__text {
+    margin-top: 0;
+  }
+
+  &__preview {
+    justify-content: space-between;
+    display: flex;
+  }
+  &__text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+    margin-right: 1rem;
+  }
+  &__title {
+    margin-bottom: 0.4rem;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__unread {
+    color: white;
+    padding: 0 0.6rem;
+    border-radius: 1.8rem;
+    line-height: 1.8rem;
+    font-weight: normal;
+    text-align: center;
+    background: #5181b8;
+    display: inline-block;
+  }
+
+}
