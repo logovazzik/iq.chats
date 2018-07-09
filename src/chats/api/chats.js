@@ -37,7 +37,8 @@ class ChatsApi {
         const chat = chatsService.getMockChat(id, recipient, sender);
         chat.unreadMessagesCount = chatsService.getRandomInt(1, 6);
         chat.messages[chat.messages.length - 1].sender = sender;
-        chat.lastPublishTimestamp = Date.now();
+        chat.messages[chat.messages.length - 1].timestamp = new Date();
+        chat.lastPublishTimestamp = chat.messages[chat.messages.length - 1].timestamp;
         return Promise.resolve(chat);
         // end section for mocking
     }

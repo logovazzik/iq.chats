@@ -41,7 +41,7 @@ class Message {
         this.chatId = chatId;
         this.recipientId = recipientId;
         this.sender = sender;
-        this.timestamp = Date.now() - ((Math.random() + 1) * 10000);
+        this.timestamp = Date.now() - ((Math.random() + 1) * 100000000);
         this.text = Array(Math.round(Math.random() + 1) * 10).fill('Lorem ipsum').join()
     }
 }
