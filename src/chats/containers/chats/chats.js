@@ -8,7 +8,7 @@ import {chatsUpdateAction, chatUpdateAction, newMessageAction, postMessageAction
 import {userUpdateAction} from '../../actions/user'
 import {getChats} from "../../reducers/chats";
 import {getCurrentUser} from "../../reducers/user";
-
+import ReactList from 'react-list';
 
 class Chats extends PureComponent {
     socket;
@@ -41,6 +41,13 @@ class Chats extends PureComponent {
         this.socket.close();
     }
 
+    renderItem(index, key) {
+        return <Chat user={this.props.user}
+                     key={this.props.chats[index].id}
+                     chat={this.props.chats[index]} read={this.markAsReadHandler}/>
+    }
+
+
     render() {
         const {chats, user} = this.props;
         return (<div className="chats-layout">
@@ -61,8 +68,13 @@ class Chats extends PureComponent {
                     </div>
                 </div>
                 <div className="chats-layout__chats">
+                    <div style={{overflow: 'auto', maxHeight: 400}}>
+                        <ReactList
+                            itemRenderer={this.renderItem.bind(this)}
+                            length={this.props.chats.length}
+                        />
+                    </div>
                     {(chats || []).map((chat) => {
-                        return <Chat user={user} key={chat.id} chat={chat} read={this.markAsReadHandler}/>
                     })}
                 </div>
             </div>

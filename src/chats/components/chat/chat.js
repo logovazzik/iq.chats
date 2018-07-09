@@ -34,9 +34,10 @@ export class Chat extends PureComponent {
     }
 
     render() {
+        console.log('render')
         const {chat, user, read} = this.props;
         const lastMessage = chat.messages[chat.messages.length - 1];
-        return (<div className="chat" onClick={() => read(chat)}>
+        return (<div className="chat" style={this.props.style} onClick={() => read(chat)}>
             <h5 className="chat__title"><span>{this.getTitle()}</span>
                 {lastMessage && <span className="chat__time">{this.getFormattedTime(lastMessage.timestamp)}</span>}
             </h5>
