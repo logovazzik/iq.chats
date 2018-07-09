@@ -34,7 +34,6 @@ export class Chat extends PureComponent {
     }
 
     render() {
-        console.log('render chat');
         const {chat, user, read} = this.props;
         const lastMessage = chat.messages[chat.messages.length - 1];
         return (<div className="chat" onClick={() => read(chat)}>

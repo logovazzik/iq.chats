@@ -51,8 +51,9 @@
     "whatwg-fetch": "2.0.3"
   },
   "scripts": {
+    "publish": "node scripts/gh-pages.js",
     "start": "node scripts/start.js",
-    "build": "node scripts/build.js",
+    "build": "PUBLIC_URL=https://logovazzik.github.io/iq.chats/ node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom"
   },
   "devDependencies": {
