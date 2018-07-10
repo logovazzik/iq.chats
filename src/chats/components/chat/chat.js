@@ -44,7 +44,7 @@ export class Chat extends PureComponent {
                  onClick={() => read(chat)}>
       <div className="chat__part chat__part_l">
         <Avatar text={this.getAbbr(chat, user)}
-                number={this.getNumberForAvatar(chat, user) + 100000}/>
+                number={this.getNumberForAvatar(chat, user)}/>
       </div>
       <div className="chat__part">
         <h5 className="chat__title">
