@@ -7,6 +7,7 @@
     background: white;
     flex-basis: 100%;
     overflow: auto;
+    -webkit-overflow-scrolling: touch;
   }
   &__buttons {
     text-align: center;
