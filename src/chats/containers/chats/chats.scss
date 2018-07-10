@@ -1,9 +1,12 @@
 .chats-layout {
   margin: auto;
   max-width: 50rem;
+  display: flex;
+  flex-direction: column;
   &__chats {
     background: white;
-    border: solid 1px #e7e8ec;
+    flex-basis: 100%;
+    overflow: auto;
   }
   &__buttons {
     text-align: center;
