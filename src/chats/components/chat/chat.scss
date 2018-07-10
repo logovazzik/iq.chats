@@ -53,7 +53,13 @@
     display: flex;
     font-weight: 500;
     font-size: 1.5rem;
+    white-space: nowrap;
     justify-content: space-between;
+  }
+
+  &__name {
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   &__unread {

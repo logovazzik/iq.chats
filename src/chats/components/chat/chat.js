@@ -3,6 +3,7 @@ import './chat.scss';
 import { CHAT_TYPES, PREVIEW_MAX_LENGTH, SELF_MESSAGE_PREFIX } from "../../constants";
 import Time from '../time/time';
 import Avatar from "../avatar/avatar";
+import chatsService from '../../services/chats.service';
 
 export class Chat extends PureComponent {
   constructor(props) {
@@ -14,33 +15,20 @@ export class Chat extends PureComponent {
     return message.substring(0, this.previewSymbolsMax);
   }
 
-  getOpponent(chat, user) {
-    return chat.participants.find((participant) => {
-      return participant.id !== user.id;
-    })
+  getChatOpponent(chat, user) {
+    return chatsService.getChatFirstOpponent(chat, user);
   }
 
   getAbbr(chat, user) {
-    if (chat.type === CHAT_TYPES.User2User) {
-      const opponent = this.getOpponent(chat, user);
-      return opponent.firstName[0] + opponent.lastName[0];
-    }
+    return chatsService.getAbbreviation(chat, user);
   }
 
   getNumberForAvatar(chat, user) {
-    if (chat.type === CHAT_TYPES.User2User) {
-      const opponent = this.getOpponent(chat, user);
-      return opponent.id;
-    }
-    return chat.id;
+    return chatsService.getChatColorNumber(chat, user);
   }
 
-  getTitle(chat, user) {
-    if (chat.type === CHAT_TYPES.User2User) {
-      const opponent = this.getOpponent(chat, user);
-      return `${opponent.firstName} ${opponent.lastName}`;
-    }
-    return chat.title;
+  getChatName(chat, user) {
+    return chatsService.getChatTitle(chat, user);
   }
 
   getMessagePreview(message, user) {
@@ -60,7 +48,7 @@ export class Chat extends PureComponent {
       </div>
       <div className="chat__part">
         <h5 className="chat__title">
-          <span>{this.getTitle(chat, user)}</span>
+          <span className="chat__name">{this.getChatName(chat, user)}</span>
           {lastMessage && <span className="chat__time">
             <Time timestamp={lastMessage.timestamp}/></span>
           }

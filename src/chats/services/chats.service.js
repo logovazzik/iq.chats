@@ -1,4 +1,4 @@
-import { CHAT_TYPES } from "../constants";
+import { CHAT_TYPES, CHATS_COLOR_FACTOR } from "../constants";
 import { getRandomInt } from '../../utils';
 
 class User {
@@ -12,7 +12,7 @@ class User {
     let lastNames = ['Иванов', 'Петров', 'Сидоров', 'Максимов', 'Третьяков', 'Золотых', 'Смирнов', 'Черных'];
     this.id = id;
     this.firstName = firstNames[getRandomInt(0, firstNames.length - 1)];
-    this.lastName = lastNames[getRandomInt(0, lastNames.length - 1)] + ' ' + id;
+    this.lastName = `${lastNames[getRandomInt(0, lastNames.length - 1)]} userId: ${id}`;
 
   }
 }
@@ -61,6 +61,37 @@ class ChatsService {
   constructor() {
     this.currentUser = this.getMockCurrentUser();
   }
+
+  getChatFirstOpponent(chat, user) {
+    return chat.participants.find((participant) => {
+      return participant.id !== user.id;
+    });
+  }
+
+  getAbbreviation(chat, user) {
+    if (chat.type === CHAT_TYPES.User2User) {
+      const opponent = this.getChatFirstOpponent(chat, user);
+      return opponent.firstName[0] + opponent.lastName[0];
+    }
+    // todo for group chats
+  }
+
+  getChatTitle(chat, user) {
+    if (chat.type === CHAT_TYPES.User2User) {
+      const opponent = this.getChatFirstOpponent(chat, user);
+      return `${opponent.firstName} ${opponent.lastName}`;
+    }
+    return chat.title;
+  }
+
+  getChatColorNumber(chat, user) {
+    if (chat.type === CHAT_TYPES.User2User) {
+      const opponent = this.getChatFirstOpponent(chat, user);
+      return opponent.firstName[0].charCodeAt(0) * CHATS_COLOR_FACTOR + opponent.lastName[0].charCodeAt(0) * CHATS_COLOR_FACTOR;
+    }
+    return chat.id;
+  }
+
 
   markAsRead(chat) {
     let _chat = Object.assign({}, chat);
