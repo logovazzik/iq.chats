@@ -1,15 +1,12 @@
 import React, { PureComponent } from 'react';
 import './chat.scss';
-import { CHAT_TYPES, PREVIEW_MAX_LENGTH, SELF_MESSAGE_PREFIX } from "../../constants";
+import { PREVIEW_MAX_LENGTH, SELF_MESSAGE_PREFIX } from "../../constants";
 import Time from '../time/time';
 import Avatar from "../avatar/avatar";
 import chatsService from '../../services/chats.service';
 
 export class Chat extends PureComponent {
-  constructor(props) {
-    super(props);
-    this.previewSymbolsMax = PREVIEW_MAX_LENGTH;
-  }
+ previewSymbolsMax = PREVIEW_MAX_LENGTH;
 
   getPreview(message) {
     return message.substring(0, this.previewSymbolsMax);
@@ -35,13 +32,16 @@ export class Chat extends PureComponent {
     const prefix = message.sender.id === user.id ? SELF_MESSAGE_PREFIX : '';
     return `${prefix} ${this.getPreview(message.text)}`;
   }
+  
+  onClick = () => this.props.read(this.props.chat);
 
   render() {
-    const {chat, user, read} = this.props;
+    const { chat, user } = this.props;
     const lastMessage = chat.messages[chat.messages.length - 1];
+    console.log('Chat.render');
     return (<div className="chat"
                  style={this.props.style}
-                 onClick={() => read(chat)}>
+                 onClick={this.onClick}>
       <div className="chat__part chat__part_l">
         <Avatar text={this.getAbbr(chat, user)}
                 number={this.getNumberForAvatar(chat, user)}/>

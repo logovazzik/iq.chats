@@ -1,11 +1,7 @@
 import React, { PureComponent } from 'react';
-import { getDateObj, isToday } from '../../../utils'
+import { getDateObj, isToday } from '../../utils'
 
 export default class Time extends PureComponent {
-  constructor(props) {
-    super(props);
-  }
-
   getFormattedTime(timestamp) {
     const messageDate = new Date(timestamp);
     const dateObj = getDateObj(messageDate);

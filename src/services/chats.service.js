@@ -1,5 +1,5 @@
 import { CHAT_TYPES, CHATS_COLOR_FACTOR } from "../constants";
-import { getRandomInt } from '../../utils';
+import { getRandomInt } from '../utils';
 
 class User {
   id;
