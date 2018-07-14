@@ -1,6 +1,6 @@
-import chatsService from '../services/chats.service';
+import chatsService from '../chats/services/chats';
 import {Server} from 'mock-socket';
-import {CHAT_STATUS_TYPES, API_MESSAGE_SOCKET} from '../constants';
+import {CHAT_STATUS_TYPES, API_MESSAGE_SOCKET} from '../chats/constants';
 
 class ChatsApi {
     constructor() {

@@ -1,12 +1,12 @@
 import {createStore, applyMiddleware, combineReducers} from 'redux';
 import thunk from 'redux-thunk';
 
-import chatsReducer from './redux/modules/chats';
-import userReducer from "./redux/modules/user";
+import * as ducks from './ducks/chats';
+import * as user from "./ducks/user";
 
 const reducer = combineReducers({
-    chats: chatsReducer,
-    user: userReducer
+    chats: ducks.reducer,
+    user: user.reducer
 });
 
 export default createStore(reducer, applyMiddleware(thunk));

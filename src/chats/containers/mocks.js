@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { postMessageFromUnknown, postMessageFromTenLatest, postMessageFromRandomUser } from '../redux/modules/mocks'
+import { postMessageFromRandomUser, postMessageFromTenLatest, postMessageFromUnknown } from '../../ducks/mocks/mocks'
 import Button from '../components/button';
 
-const Mocks = ({ postMessageFromUnknown, postMessageFromTenLatest, postMessageFromRandomUser }) => (
+const Mocks = ({postMessageFromUnknown, postMessageFromTenLatest, postMessageFromRandomUser}) => (
   <div className="button-group">
     <Button onClick={postMessageFromUnknown}>
       Send from unknown
@@ -24,7 +24,7 @@ Mocks.propTypes = {
   postMessageFromTenLatest: PropTypes.func.isRequired,
   postMessageFromRandomUser: PropTypes.func.isRequired,
 };
-    
+
 const mapDispatchToProps = {
   postMessageFromUnknown,
   postMessageFromTenLatest,

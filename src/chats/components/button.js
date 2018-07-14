@@ -7,7 +7,6 @@ export default glamorous('button')({
   width: '100%',
   display: 'inline-block',
   fontWeight: 400,
-  textAlign: 'center',
   whiteSpace: 'nowrap',
   verticalAlign: 'middle',
   WebkitUserSelect: 'none',

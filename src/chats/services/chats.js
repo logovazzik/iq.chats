@@ -1,5 +1,5 @@
 import { CHAT_TYPES, CHATS_COLOR_FACTOR } from "../constants";
-import { getRandomInt } from '../utils';
+import { getRandomInt } from '../../utils';
 
 class User {
   id;
@@ -54,7 +54,7 @@ class Message {
 }
 
 
-class ChatsService {
+class Chats {
   currentUser;
   mockUsers;
 
@@ -176,4 +176,4 @@ class ChatsService {
   }
 }
 
-export default new ChatsService();
+export default new Chats();

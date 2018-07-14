@@ -1,4 +1,4 @@
-import chatsService from '../../services/chats.service';
+import chatsService from '../../chats/services/chats';
 import api from '../../api/chats';
 import { getRandomInt } from '../../utils';
 
