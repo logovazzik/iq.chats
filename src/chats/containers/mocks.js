@@ -34,7 +34,8 @@ class Mocks extends PureComponent {
     }
 
     render() {
-        return (<div>
+        const {user, chats} = this.props;
+        return (user && chats && <div>
             <Button onClick={this.postMessageFromUnknown}>
                 Send from unknown
             </Button>

@@ -9,7 +9,6 @@ import Chats from '../containers/chats'
 import {API_SOCKET_URL} from "../constants";
 import {closeSocketConnectionAction, openSocketConnectionAction} from "../../ducks/socket";
 
-
 class ChatsPage extends PureComponent {
     static propTypes = {
         openSocketConnection: PropTypes.func.isRequired,
