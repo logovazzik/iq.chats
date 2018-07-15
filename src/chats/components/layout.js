@@ -1,10 +1,10 @@
 import React from 'react';
-import glamorous from 'glamorous';
+import styled from 'styled-components';
 
-export default glamorous('div')({
-  height: '100%',
-  margin: 'auto',
-  maxWidth: '50rem',
-  display: 'flex',
-  flexDirection: 'column',
-});
+export default styled.div`
+    height: 100%;
+    margin: auto;
+    max-width: 50rem;
+    display: flex;
+    flex-direction: column;
+`

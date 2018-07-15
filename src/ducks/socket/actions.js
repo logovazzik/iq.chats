@@ -1,15 +1,15 @@
-import { ADD_CONNECTION_ACTION, REMOVE_CONNECTION_ACTION} from './types';
+import {CLOSE_SOCKET_CONNECTION, OPEN_SOCKET_CONNECTION} from './types';
 
-export const addConnectionAction = (payload) => {
-  return ({
-    type: ADD_CONNECTION_ACTION,
-    payload
-  });
+export const openSocketConnectionAction = (payload) => {
+    return ({
+        type: OPEN_SOCKET_CONNECTION,
+        payload
+    });
 };
 
-export const removeConnectionAction = (payload) => {
-  return ({
-    type: REMOVE_CONNECTION_ACTION,
-    payload
-  });
+export const closeSocketConnectionAction = (payload) => {
+    return ({
+        type: CLOSE_SOCKET_CONNECTION,
+        payload
+    });
 };
