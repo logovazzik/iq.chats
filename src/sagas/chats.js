@@ -34,7 +34,6 @@ function* _markAsRead(action) {
 
 function* _postMessage(action) {
     const payload = action.payload;
-    yield put({type: NEW_CHAT_MESSAGE_ACTION, payload});
     api.postMessage(payload);
 }
 

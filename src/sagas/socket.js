@@ -10,8 +10,8 @@ function watchMessages(socket) {
             socket.send('Connection estabished');
         };
         socket.onmessage = (event) => {
-            const {type, payload} = JSON.parse(event.data);
-            emit({type, payload});
+            const payload = JSON.parse(event.data);
+            emit({type: event.type, payload});
         };
         return () => {
             socket.close();

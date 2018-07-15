@@ -1,8 +1,10 @@
 import mockChatsService from '../services/chats.mocks'
 import {CHAT_STATUS_TYPES} from '../chats/constants';
+import mockSockets from  '../services/socket.mock';
 
 class ChatsApi {
     postMessage(message) {
+        mockSockets.send(message);
         console.log('api/message', message, 'POST');
     }
 
