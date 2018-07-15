@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types';
 
 import Time from './time';
-import chatsService from "../../services/chats";
 
 const StyledTitle = styled.h5`
     margin-bottom: 0.4rem;

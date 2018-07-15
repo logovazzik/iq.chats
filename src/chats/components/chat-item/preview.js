@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types';
 
 import UnreadCount from './unread';
-import {PREVIEW_MAX_LENGTH, SELF_MESSAGE_PREFIX} from "../../constants";
 
 const StyledMessagePreview = styled.span`
     overflow: hidden;
