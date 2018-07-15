@@ -5,6 +5,10 @@ class SocketsApi {
         mockSockets.addServer(url);
         return new WebSocket(url);
     }
+    closeSocketConnection(socket){
+        socket.close();
+        mockSockets.removeServer(socket.url);
+    }
 }
 
 const api = new SocketsApi();

@@ -45,6 +45,7 @@ function* openConnection(action) {
     while (true) {
         const action = yield take(CLOSE_SOCKET_CONNECTION);
         if (payload === action.payload) {
+            api.closeSocketConnection(socket);
             socketChannel.close();
             yield cancel(listenersTask)
         }
