@@ -1,9 +1,13 @@
-import {Server} from 'mock-socket';
+import mockSockets from  '../services/socket.mock';
 
 class SocketsApi {
     openSocketConnection(url) {
-        const server = new Server(url);
+        mockSockets.addServer(url);
         return new WebSocket(url);
+    }
+    closeSocketConnection(socket){
+        socket.close();
+        mockSockets.removeServer(socket.url);
     }
 }
 
