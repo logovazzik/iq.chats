@@ -1,12 +1,10 @@
 import userMockService from '../services/users.mocks';
 
 class UserApi {
-  getUser() {
-    console.log('api/user', 'GET');
-    // start section for mocking
-    return Promise.resolve(userMockService.getMockCurrentUser());
-    // end section for mocking
-  }
+    async getUser() {
+        console.log('api/user', 'GET');
+        return await (userMockService.getMockCurrentUser());
+    }
 }
 
 const api = new UserApi();

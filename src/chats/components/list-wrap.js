@@ -1,9 +1,9 @@
 import React from 'react';
-import glamorous from 'glamorous';
+import styled from 'styled-components';
 
-export default glamorous('div')({
-  background: 'white',
-  flexBasis: '100%',
-  overflow: 'auto',
-  WebkitOverflowScrolling: 'touch',
-});
+export default styled.div`
+    background: white;
+    flexBasis: 100%;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+`
