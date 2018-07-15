@@ -48,7 +48,6 @@ function* _newMessage(action) {
         // need to pass sender and recipient, its only for creating mock.
         try {
             let _chat = yield call(() => api.loadChat(message.chatId, currentUser, message.sender));
-            console.log(_chat);
             yield put(chatUpdateAction(_chat));
         } catch (err) {
             console.error('Error while fetching chat with id = ' + message.chatId, err);
