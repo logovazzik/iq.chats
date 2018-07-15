@@ -10,7 +10,7 @@ export default class Time extends PureComponent {
     return !isToday(messageDate) ?
       `${dateObj.day}.${dateObj.month}.${dateObj.year} ${timeStr}` :
       timeStr;
-  }
+  };
 
   render() {
     return this.getFormattedTime(this.props.timestamp);

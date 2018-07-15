@@ -1,4 +1,4 @@
-import {CHATS_UPDATE_ACTION,CHAT_UPDATE_ACTION } from './types';
+import { CHAT_UPDATE_ACTION, CHATS_UPDATE_ACTION } from './types';
 
 export const chatsUpdateAction = (payload) => {
   return ({
@@ -6,7 +6,7 @@ export const chatsUpdateAction = (payload) => {
     payload
   });
 };
-export const chatUpdateAction = (payload) =>  {
+export const chatUpdateAction = (payload) => {
   return ({
     type: CHAT_UPDATE_ACTION,
     payload

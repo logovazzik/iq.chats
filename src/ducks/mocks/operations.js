@@ -28,5 +28,5 @@ export const postMessageFromRandomUser = () => (dispatch, getState) => {
 };
 
 export const postMessageAction = (message) => (dispatch, getState) => {
-    return api.postMessage(message);
+  return api.postMessage(message);
 };

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { postMessageFromRandomUser, postMessageFromTenLatest, postMessageFromUnknown } from '../../ducks/mocks/mocks'
+import { postMessageFromRandomUser, postMessageFromTenLatest, postMessageFromUnknown } from '../../ducks/mocks'
 import Button from '../components/button';
 
 const Mocks = ({postMessageFromUnknown, postMessageFromTenLatest, postMessageFromRandomUser}) => (

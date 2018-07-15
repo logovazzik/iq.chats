@@ -29,7 +29,7 @@ const sortedChats = (payload) => {
 
 export const getSortedChats = createSelector(
   getChats,
-  sortedChats,
+  sortedChats
 );
 
 export function reducer(state = [], action) {

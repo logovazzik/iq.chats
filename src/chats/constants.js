@@ -7,6 +7,6 @@ export const CHAT_STATUS_TYPES = {
 };
 export const SELF_MESSAGE_PREFIX = 'Вы:';
 
-export const API_MESSAGE_SOCKET = 'ws://chats.mock';
+export const API_SOCKET_URL = 'ws://chats.mock';
 
 export const CHATS_COLOR_FACTOR = 2000;

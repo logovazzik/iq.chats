@@ -49,7 +49,8 @@ export class Chat extends PureComponent {
         <h5 className="chat__title">
           <span className="chat__name">{this.getChatName(chat, user)}</span>
           {lastMessage && <span className="chat__time">
-            <Time timestamp={lastMessage.timestamp}/></span>
+            <Time timestamp={lastMessage.timestamp}/>
+          </span>
           }
         </h5>
         {lastMessage &&
