@@ -7,7 +7,6 @@ export const userUpdateAction = (payload) => {
     };
 };
 
-
 export const userLoadAction = () => {
     return {
         type: USER_LOAD
