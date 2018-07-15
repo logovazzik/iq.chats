@@ -1,15 +1,14 @@
 import React, {Component} from 'react';
-import Chats from './chats/containers/chats/chats'
-import './app.scss';
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 
-class App extends Component {
-    render() {
-        return (
-            <div className="App">
-                <Chats/>
-            </div>
-        );
-    }
-}
+import {ChatsPage} from "./chats/pages/chats";
 
-export default App;
+export default class App extends Component {
+  render() {
+    return (
+     <ChatsPage/>
+    );
+  }
+};
+

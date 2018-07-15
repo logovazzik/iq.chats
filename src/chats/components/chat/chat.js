@@ -1,15 +1,12 @@
 import React, { PureComponent } from 'react';
 import './chat.scss';
-import { CHAT_TYPES, PREVIEW_MAX_LENGTH, SELF_MESSAGE_PREFIX } from "../../constants";
-import Time from '../time/time';
+import { PREVIEW_MAX_LENGTH, SELF_MESSAGE_PREFIX } from "../../constants";
+import Time from '../time';
 import Avatar from "../avatar/avatar";
-import chatsService from '../../services/chats.service';
+import chatsService from '../../services/chats';
 
 export class Chat extends PureComponent {
-  constructor(props) {
-    super(props);
-    this.previewSymbolsMax = PREVIEW_MAX_LENGTH;
-  }
+  previewSymbolsMax = PREVIEW_MAX_LENGTH;
 
   getPreview(message) {
     return message.substring(0, this.previewSymbolsMax);
@@ -36,12 +33,14 @@ export class Chat extends PureComponent {
     return `${prefix} ${this.getPreview(message.text)}`;
   }
 
+  readHandler = () => this.props.read(this.props.chat);
+
   render() {
-    const {chat, user, read} = this.props;
+    const {chat, user} = this.props;
     const lastMessage = chat.messages[chat.messages.length - 1];
     return (<div className="chat"
                  style={this.props.style}
-                 onClick={() => read(chat)}>
+                 onClick={this.readHandler}>
       <div className="chat__part chat__part_l">
         <Avatar text={this.getAbbr(chat, user)}
                 number={this.getNumberForAvatar(chat, user)}/>
@@ -50,7 +49,8 @@ export class Chat extends PureComponent {
         <h5 className="chat__title">
           <span className="chat__name">{this.getChatName(chat, user)}</span>
           {lastMessage && <span className="chat__time">
-            <Time timestamp={lastMessage.timestamp}/></span>
+            <Time timestamp={lastMessage.timestamp}/>
+          </span>
           }
         </h5>
         {lastMessage &&
