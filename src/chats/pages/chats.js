@@ -17,11 +17,11 @@ export class ChatsPage extends PureComponent {
   };
 
   componentDidMount() {
-    this.props.openSocketConnection(API_SOCKET_URL)
+    //this.props.openSocketConnection(API_SOCKET_URL)
   }
 
   componentWillUnmount() {
-    this.props.closeSocketConnection(API_SOCKET_URL);
+   // this.props.closeSocketConnection(API_SOCKET_URL);
   }
 
   render() {

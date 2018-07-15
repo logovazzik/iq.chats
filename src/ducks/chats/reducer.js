@@ -34,10 +34,10 @@ export const getSortedChats = createSelector(
 
 export function reducer(state = [], action) {
   const {type, payload} = action;
-
   switch (type) {
-    case CHATS_UPDATE_ACTION:
+    case CHATS_UPDATE_ACTION: {
       return payload;
+    }
     case CHAT_UPDATE_ACTION:
       return handleUpdateChat(state, payload);
     default:

@@ -5,23 +5,9 @@ import { chatUpdateAction } from './actions';
 import { getCurrentUser } from '../user';
 import { chatsUpdateAction } from "./index";
 
-export const markAsRead = (chat) => (dispatch, getState) => {
-  if (chat.unreadMessagesCount > 0) {
-    api.markAsReadChat(chat.id);
-    const _chat = chatsService.markAsRead(chat);
-    dispatch(chatUpdateAction(_chat))
-  }
-};
 
-export const loadChats = () => async (dispatch, getState) => {
-  let chats = [];
-  try {
-    chats = await api.loadChats();
-  }
-  finally {
-    dispatch(chatsUpdateAction(chats));
-  }
-};
+
+
 
 export const newMessageOperation = (message) => async (dispatch, getState) => {
   const state = getState();

@@ -1,10 +1,10 @@
-import chatsService from '../chats/services/chats';
+import userMockService from '../services/users.mocks';
 
 class UserApi {
   getUser() {
     console.log('api/user', 'GET');
     // start section for mocking
-    return Promise.resolve(chatsService.getMockCurrentUser());
+    return Promise.resolve(userMockService.getMockCurrentUser());
     // end section for mocking
   }
 }

@@ -16,26 +16,6 @@ class User {
   }
 }
 
-class User {
-  id;
-  messages;
-  unreadMessagesCount;
-  type;
-  lastReadTimestamp;
-  lastPublishTimestamp;
-  participants;
-
-  constructor(id, type, messages, participants) {
-    this.id = id;
-    this.type = type;
-    this.messages = messages || [];
-    this.participants = participants || [];
-    this.unreadMessagesCount = 0;
-    this.lastReadTimestamp = Date.now();
-    this.lastPublishTimestamp = this.messages[this.messages.length - 1].timestamp;
-  }
-}
-
 class UsersMock {
   mockUsers;
   currentUser = this.getMockCurrentUser();

@@ -3,11 +3,8 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
 import {ChatsPage} from "./chats/pages/chats";
-import { initSocket, closeSocket } from './ducks/socket'
 
-class App extends Component {
-
-
+export default class App extends Component {
   render() {
     return (
      <ChatsPage/>
@@ -15,9 +12,3 @@ class App extends Component {
   }
 };
 
-const mapDispatchToProps = {
-    initSocket,
-    closeSocket,
-};
-
-export default connect(null, mapDispatchToProps)(App);

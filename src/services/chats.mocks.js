@@ -1,4 +1,4 @@
-import { getRandomInt } from '../../utils';
+import { getRandomInt } from '../utils';
 import usersMock from './users.mocks';
 import {CHAT_TYPES} from "../chats/constants";
 
