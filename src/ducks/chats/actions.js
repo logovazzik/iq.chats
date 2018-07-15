@@ -7,23 +7,24 @@ import {
 } from './types';
 
 export const chatsUpdateAction = (payload) => {
-    return ({
+    return {
         type: CHATS_UPDATE_ACTION,
         payload
-    });
+    };
 };
+
 export const chatUpdateAction = (payload) => {
-    return ({
+    return {
         type: CHAT_UPDATE_ACTION,
         payload
-    })
+    };
 };
 
 export const markAsReadAction = (payload) => {
-    return ({
+    return {
         type: MARK_AS_READ_ACTION,
         payload
-    })
+    };
 };
 
 export const chatsLoadAction = () => {
@@ -36,5 +37,5 @@ export const postMessageAction = (payload) => {
     return {
         type: POST_MESSAGE_ACTION,
         payload
-    }
+    };
 };

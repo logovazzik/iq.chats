@@ -56,7 +56,6 @@ class ChatsMock {
         return new Message(chatId, recipientId, sender);
     }
 
-
     createMockUsers(number) {
         this.mockUsers = usersMock.getMockUsers(number);
     }
@@ -113,7 +112,6 @@ class ChatsMock {
         chat.lastPublishTimestamp = chat.messages[chat.messages.length - 1].timestamp;
         return chat;
     }
-
 }
 
 export default new ChatsMock();
