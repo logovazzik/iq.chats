@@ -32,7 +32,7 @@ function* _markAsRead(action) {
     }
 }
 
-function* _postMessage(action) {
+function _postMessage(action) {
     const payload = action.payload;
     api.postMessage(payload);
 }
