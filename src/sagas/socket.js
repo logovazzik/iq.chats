@@ -1,4 +1,4 @@
-import {call, put, race, take} from 'redux-saga/effects'
+import {all, call, cancel, fork, put, take, takeEvery} from 'redux-saga/effects'
 import {eventChannel} from 'redux-saga'
 
 import api from "../api/sockets";
@@ -33,18 +33,25 @@ function* externalListener(socketChannel) {
     }
 }
 
-export function* socketsHander() {
+function* startListeners(socketChannel) {
+    yield all([call(externalListener, socketChannel), call(internalListener, socketChannel)]);
+}
+
+function* openConnection(action) {
+    const {payload} = action;
+    const socket = api.openSocketConnection(payload);
+    const socketChannel = yield call(watchMessages, socket);
+    const listenersTask = yield fork(startListeners, socketChannel);
     while (true) {
-        const {payload} = yield take(OPEN_SOCKET_CONNECTION);
-        const socket = api.openSocketConnection(payload);
-        const socketChannel = yield call(watchMessages, socket);
-        const {cancel} = yield race({
-            task: [call(externalListener, socketChannel), call(internalListener, socket)],
-            cancel: take(CLOSE_SOCKET_CONNECTION)
-        });
-        if (cancel && cancel.payload === payload) {
+        const action = yield take(CLOSE_SOCKET_CONNECTION);
+        if (payload === action.payload) {
             socketChannel.close();
+            yield cancel(listenersTask)
         }
     }
+}
+
+export function* socketsHander() {
+    yield takeEvery(OPEN_SOCKET_CONNECTION, openConnection);
 }
 
