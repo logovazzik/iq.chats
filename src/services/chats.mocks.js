@@ -56,7 +56,6 @@ class ChatsMock {
         return new Message(chatId, recipientId, sender);
     }
 
-
     createMockUsers(number) {
         this.mockUsers = usersMock.getMockUsers(number);
     }
@@ -105,7 +104,7 @@ class ChatsMock {
         return message;
     };
 
-    loadMockChat(id, recipient, sender){
+    loadMockChat(id, recipient, sender) {
         let chat = this.getMockChat(id, recipient, sender);
         chat.unreadMessagesCount = 1;
         chat.messages[chat.messages.length - 1].sender = sender;
@@ -113,7 +112,6 @@ class ChatsMock {
         chat.lastPublishTimestamp = chat.messages[chat.messages.length - 1].timestamp;
         return chat;
     }
-
 }
 
 export default new ChatsMock();

@@ -26,11 +26,11 @@ class ChatsPage extends PureComponent {
 
     render() {
         return (<Layout>
-                 <Mocks/>
-                 <ListWrap>
-                   <Chats/>
-                  </ListWrap>
-                </Layout>);
+            <Mocks/>
+            <ListWrap>
+                <Chats/>
+            </ListWrap>
+        </Layout>);
     }
 }
 

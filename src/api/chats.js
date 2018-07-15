@@ -8,7 +8,6 @@ class ChatsApi {
 
     async loadChats() {
         console.log('api/chats', 'GET');
-
         // start section for mocking
         mockChatsService.createMockUsers(1000);
         return await (mockChatsService.getMockChats())
@@ -18,16 +17,12 @@ class ChatsApi {
     async loadChat(id, recipient, sender) {
         // last two args only for mock
         console.log('api/chat/{id}', 'GET');
-
-        const chat = mockChatsService.loadMockChat(id, recipient, sender);
-
-        return await chat;
+        return await mockChatsService.loadMockChat(id, recipient, sender);
     }
 
     markAsReadChat(id) {
         console.log('api/chat/{id}/status', {data: CHAT_STATUS_TYPES.Read}, 'PUT');
     }
-
 }
 
 const api = new ChatsApi();
