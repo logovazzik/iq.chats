@@ -1,10 +1,11 @@
 import mockChatsService from '../services/chats.mocks'
 import {CHAT_STATUS_TYPES} from '../chats/constants';
 import mockSockets from  '../services/socket.mock';
+import { NEW_CHAT_MESSAGE_ACTION } from "../ducks/chats";
 
 class ChatsApi {
     postMessage(message) {
-        mockSockets.send(message);
+        mockSockets.send({type: NEW_CHAT_MESSAGE_ACTION, payload: message});
         console.log('api/message', message, 'POST');
     }
 
